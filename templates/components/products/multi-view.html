@@ -201,7 +201,7 @@
   
       <section class="productView-details">
         {{> components/products/multi-button}}
-
+        <div id="multi-desc"></div>
 
       </section>
   </div>
@@ -216,11 +216,4 @@
   <script>
     pageContext = JSON.parse({{jsContext}});
     console.log(pageContext['productIds']);
-pageContext['productIds'].forEach((id, index) => {
-    console.log(id + 'id');
-productData.push({
-    id: id,
-    })
-    console.log(productData + 'productData var');
-});
   </script>

@@ -52,8 +52,27 @@ export default class Product extends PageManager {
 
         this.productReviewHandler();
         this.bulkPricingHandler();
+        this.idCheck();
     }
-
+    idCheck() {
+    let idCheck = context['productIds'];
+    console.log(idCheck + "id check");
+    if (idCheck) {
+        console.log(idCheck);
+        let productData = [];
+        pageContext['productIds'].forEach((id) => {
+            console.log(id);
+        productData.push({
+        id: id,
+         })
+        })
+    
+        productData.forEach(element => {
+            console.log(element);
+        });
+        
+    }
+}
     productReviewHandler() {
         if (this.url.indexOf('#write_review') !== -1) {
             this.$reviewLink.trigger('click');

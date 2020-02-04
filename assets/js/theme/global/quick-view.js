@@ -7,21 +7,21 @@ import 'slick-carousel';
 
 export default function (context) {
     const modal = defaultModal();
-    console.log(this.context);
     console.log(context)
-    if (pageContext['productIds']) {
-        console.log(pageContext['productIds']);
-        let productData = [];
-        pageContext['productIds'].forEach((id) => {
-            console.log(id);
-        productData.push({
-        id: id,
-         })
+    if (context['productIds']) {
+        
+
+        console.log([context['productIds']]);
+        [context['productIds']].forEach((id) => {
+            utils.api.product.getById(id, { template: 'products/quick-view' }, (err, response) => {
+                let sel = document.querySelector('#multi-desc');
+                console.log(sel + '18');
+                sel.innerHTML = response;
+                console.log(sel + '20');
+                console.log(err);
+            });
         })
     
-        productData.forEach(element => {
-            console.log(element);
-        });
         
     }
     $('body').on('click', '.quickview', event => {
