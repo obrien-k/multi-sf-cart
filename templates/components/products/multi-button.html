@@ -1,0 +1,44 @@
+<script>
+  function addMultiToCart(productIds, cartId){
+      
+      const lineItems = productIds.map(id => ({
+      quantity: 1,
+      productId: id   
+      }))
+    
+      let url = cartId !== '' 
+      ? `/api/storefront/carts/${cartId}/items`
+      : `/api/storefront/cart`
+      let data = {
+          lineItems: productIds.map(id => ({
+              quantity: 1,
+              productId: id
+          }))
+          
+      }
+      console.log(url);
+      let options = {
+          method: 'POST',
+          body: JSON.stringify(data),
+          credentials: 'include',
+          headers: {
+              "Content-Type": "application/json"
+          }
+      }
+      fetch(url, options)
+      .then(res => res.json())
+      .then(json => location.reload())
+    
+    }
+    </script>
+
+                      <div>
+                          <input id="multiButton" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                              value="Multi">
+                      </div>
+  <script>   
+      const multiButton = document.querySelector('#multiButton');
+      multiButton.addEventListener('click', event  => {
+          addMultiToCart([{{#each product.custom_fields}}{{#if name '===' 'foo'}}{{value}}{{#unless @last}},{{/unless}}{{/if}}{{/each}}], '{{cart_id}}')
+      });
+      </script>

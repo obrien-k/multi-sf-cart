@@ -7,7 +7,23 @@ import 'slick-carousel';
 
 export default function (context) {
     const modal = defaultModal();
-
+    console.log(this.context);
+    console.log(context)
+    if (pageContext['productIds']) {
+        console.log(pageContext['productIds']);
+        let productData = [];
+        pageContext['productIds'].forEach((id) => {
+            console.log(id);
+        productData.push({
+        id: id,
+         })
+        })
+    
+        productData.forEach(element => {
+            console.log(element);
+        });
+        
+    }
     $('body').on('click', '.quickview', event => {
         event.preventDefault();
 
