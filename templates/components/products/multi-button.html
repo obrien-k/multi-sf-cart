@@ -30,15 +30,22 @@
       .then(json => location.reload())
     
     }
-    </script>
-
-                      <div>
-                          <input id="multiButton" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
-                              value="Multi">
-                      </div>
-  <script>   
-      const multiButton = document.querySelector('#multiButton');
-      multiButton.addEventListener('click', event  => {
-          addMultiToCart([{{#each product.custom_fields}}{{#if name '===' 'foo'}}{{value}}{{#unless @last}},{{/unless}}{{/if}}{{/each}}], '{{cart_id}}')
-      });
-      </script>
+</script>
+{{#if product.custom_fields}}
+{{#each product.custom_fields}}
+    {{#if this.name "is_bundle"}}
+        <div>
+            <input id="multiButton" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                value="Multi">
+        </div>
+        {{else}}
+    {{/if}}
+    {{/each}}
+{{/if}}
+<script>   
+    const multiButton = document.querySelector('#multiButton');
+    multiButton.addEventListener('click', event  => {
+        const arr = [{{#each product.custom_fields}}{{#if name '===' 'foo'}}'{{value}}'{{#unless @last}},{{/unless}}{{/if}}{{/each}}];
+        addMultiToCart(arr, '{{cart_id}}')
+    });
+</script>
