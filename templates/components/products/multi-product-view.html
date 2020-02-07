@@ -1,8 +1,7 @@
 
-<div class="container" style="width:50%; height:50%">
+<div class="container"> <!-- This is different than the default product-view template, helps with spacing -->
+  <!-- The majority of changes in this file are either complete removals or minor changes to styling. Page speed is heavily impacted when pulling the full template. -->
 <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}} style="width:100%;">
-
-
   <section class="productView-details">
       <div class="productView-product">
           <h3 {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h3>

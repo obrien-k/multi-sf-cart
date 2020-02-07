@@ -1,33 +1,35 @@
 <script>
   function addMultiToCart(productIds, cartId){
       
-      const lineItems = productIds.map(id => ({
-      quantity: 1,
-      productId: id   
-      }))
-    
-      let url = cartId !== '' 
-      ? `/api/storefront/carts/${cartId}/items`
-      : `/api/storefront/cart`
-      let data = {
-          lineItems: productIds.map(id => ({
-              quantity: 1,
-              productId: id
-          }))
+    const lineItems = productIds.map(id => ({
+        quantity: 1,
+        productId: id   
+    }))
+    /* Sets the URL to an existing cart id + /items, if not use the cart endpoint to create a new cart */
+    let url = cartId !== '' 
+    ? `/api/storefront/carts/${cartId}/items`
+    : `/api/storefront/cart`
+    /* Set a data variable to our lineItems object with the product ids mapped with a quantity of 1 */
+    let data = {
+        lineItems: productIds.map(id => ({
+            quantity: 1,
+            productId: id
+        }))
           
-      }
-      console.log(url);
-      let options = {
-          method: 'POST',
-          body: JSON.stringify(data),
-          credentials: 'include',
-          headers: {
-              "Content-Type": "application/json"
-          }
-      }
-      fetch(url, options)
-      .then(res => res.json())
-      .then(json => location.reload())
+    }
+    console.log(url);
+    let options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    /* Finally we fetch the cart URL with the generated URL and supplied options */
+    fetch(url, options)
+    .then(res => res.json())
+    .then(json => location.reload()) 
     
     }
 </script>
@@ -43,9 +45,10 @@
     {{/each}}
 {{/if}}
 <script>   
-    const multiButton = document.querySelector('#multiButton');
+    const multiButton = document.querySelector('#multiButton'); /* Selects the #id that we'll attach the addMultiToCart function to, found on line 38 in this file */
     multiButton.addEventListener('click', event  => {
+        /* Create an array of each  custom_field with the name 'foo' */
         const arr = [{{#each product.custom_fields}}{{#if name '===' 'foo'}}'{{value}}'{{#unless @last}},{{/unless}}{{/if}}{{/each}}];
-        addMultiToCart(arr, '{{cart_id}}')
+        addMultiToCart(arr, '{{cart_id}}') 
     });
 </script>
