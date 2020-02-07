@@ -24,7 +24,7 @@ loadMulti({{value}})
 <script>
   arr.forEach((id) => {
     window.stencilUtils.api.product.getById(id, { template: 'products/multi-product-view' }, (err, response) => {
-      /* here we select the #id specified on line 238 */
+      /* here we select the #id specified on line 242 */
       const sel = document.querySelector('#multi-desc');
       /* now append it to the innerHTML */
         sel.innerHTML += response;
