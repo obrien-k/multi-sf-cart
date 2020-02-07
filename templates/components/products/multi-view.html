@@ -226,11 +226,10 @@ loadMulti({{value}})
         </form>
         {{> components/products/multi-button}}
       </section>
-      <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}></article>
-      <p><strong>Clicking "Multi" will add the following items to your cart:</strong><p></p>
+      <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}><h3><strong>Clicking "Multi" will add the following items to your cart:</strong></h3></article>
+      
       <div id="multi-desc"></div>
   </div>
-  
   <div id="previewModal" class="modal modal--large" data-reveal>
       <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
           <span aria-hidden="true">&#215;</span>
@@ -238,6 +237,3 @@ loadMulti({{value}})
       <div class="modal-content"></div>
       <div class="loadingOverlay"></div>
   </div>
-  <script>
-    console.log(JSON.stringify(jsContext.productIds));
-  </script>
