@@ -4,8 +4,7 @@
 </script>
 <!-- Load Stencil Utils to access product data from custom field
     Then iterate over the custom fields for the intended name ('foo' here)
-    Inject into the current context 
--->
+    Inject into the current context -->
 {{#forEach product.custom_fields}}
 {{#if name '===' 'foo'}}
 {{inject 'productIds' value }}
@@ -20,13 +19,13 @@ loadMulti({{value}})
 </script>
 {{/if}}
 {{/forEach}}
-<!-- Close out the forEach, but we're not done with this data yet, pull the product data using Stencil Utils and use a custom template-->
+<!-- Close out the forEach, but we're not done with this data yet, pull the product data using Stencil Utils and use a custom template -->
 <script>
   arr.forEach((id) => {
     window.stencilUtils.api.product.getById(id, { template: 'products/multi-product-view' }, (err, response) => {
-      /* here we select the #id specified on line 242 */
+      /* Select the #id specified on line 242 */
       const sel = document.querySelector('#multi-desc');
-      /* now append it to the innerHTML */
+      /* Apend it to the innerHTML */
         sel.innerHTML += response;
     });
   });
@@ -233,7 +232,7 @@ loadMulti({{value}})
             {{/each}}
         </div>
         </form>
-         <!-- Pull in our custom button component-->
+         <!-- Pull in our custom button component -->
         {{> components/products/multi-button}}
       </section>
       <!-- This was added to make it more obvious there's a different behavior than normal -->

@@ -15,7 +15,7 @@
                   <span>{{product.call_for_price}}</span>
               </p>
           {{/if}}
-          <div class="productView-price" style="font-size: small;">
+          <div class="productView-price" style="font-size: small;"> <!-- Styled font for price due to size compared to main product -->
               {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                   {{> components/products/price price=product.price schema_org=schema}}
               {{else}}
