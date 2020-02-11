@@ -33,6 +33,7 @@
     
     }
 </script>
+<!-- This will stop the button from appearing if "is_bundle" isn't a custom field on the product -->
 {{#if product.custom_fields}}
 {{#each product.custom_fields}}
     {{#if this.name "is_bundle"}}
@@ -49,6 +50,6 @@
     multiButton.addEventListener('click', event  => {
         /* Create an array of each custom_field with the name 'foo' */
         const arr = [{{#each product.custom_fields}}{{#if name '===' 'foo'}}'{{value}}'{{#unless @last}},{{/unless}}{{/if}}{{/each}}];
-        addMultiToCart(arr, '{{cart_id}}') 
+        addMultiToCart(arr, '{{cart_id}}') // run the addMultiToCart function with the array we created and a cart ID if ones available in the context.
     });
 </script>

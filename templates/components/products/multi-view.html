@@ -25,7 +25,7 @@ loadMulti({{value}})
     window.stencilUtils.api.product.getById(id, { template: 'products/multi-product-view' }, (err, response) => {
       /* Select the #id specified on line 242 */
       const sel = document.querySelector('#multi-desc');
-      /* Apend it to the innerHTML */
+      /* Append it to the innerHTML */
         sel.innerHTML += response;
     });
   });
@@ -147,8 +147,8 @@ loadMulti({{value}})
   
                   {{#if theme_settings.show_custom_fields_tabs '!==' true}}
                       {{#each product.custom_fields}}
-                        {{#if name '!=' 'foo'}}
-                            {{#if name '!=' 'is_bundle'}}
+                        {{#if name '!=' 'foo'}} <!-- Hide the "foo" and "is_bundle" custom fields -->
+                           {{#if name '!=' 'is_bundle'}}
                           <dt class="productView-info-name">{{name}}:</dt>
                           <dd class="productView-info-value">{{{value}}}</dd>
                             {{/if}}
@@ -156,7 +156,7 @@ loadMulti({{value}})
                       {{/each}}
                       
                   {{/if}}
-                  {{#each product.custom_fields}}
+                  {{#each product.custom_fields}} <!-- Display the "foo" custom field with a hard coded name -->
                     {{#if name '===' 'foo'}}
                       <p><strong>Product ID to add:</strong> {{value}}</p>
                     {{/if}}
@@ -239,11 +239,4 @@ loadMulti({{value}})
       <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}><p><strong>Click "Multi" to add the following items to your cart:</strong></p></article>
       <!-- Set up a div with a unique id to insert our product data + template into, I set the style to float:right for aesthetic purposes. -->
       <div id="multi-desc" style="float:right;"></div>
-  </div>
-  <div id="previewModal" class="modal modal--large" data-reveal>
-      <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
-          <span aria-hidden="true">&#215;</span>
-      </a>
-      <div class="modal-content"></div>
-      <div class="loadingOverlay"></div>
   </div>
