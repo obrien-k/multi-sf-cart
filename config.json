@@ -3,9 +3,9 @@
   "version": "4.4.0",
   "meta": {
     "price": 0,
-    "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
-    "author_name": "BigCommerce",
-    "author_email": "support@bigcommerce.com",
+    "documentation_url": "https://github.com/obrien-k/multi-sf-cart",
+    "author_name": "Kyle O'Brien",
+    "author_email": "kyle.obrien@bigcommerce.com",
     "author_support_url": "https://support.bigcommerce.com/",
     "composed_image": "composed.png",
     "features": [
