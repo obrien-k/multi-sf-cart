@@ -1,6 +1,6 @@
 
 <!-- The majority of changes in this file are either complete removals or minor changes to styling. Page speed is heavily impacted when pulling the full template. -->
-<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}} style="border:solid steelblue 2px;color:aliceblue">
+<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
   <section class="productView-details">
       <div class="productView-product">
           <p {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</p>
@@ -14,7 +14,7 @@
                   <span>{{product.call_for_price}}</span>
               </p>
           {{/if}}
-          <div class="productView-price" style="font-size: small;"> <!-- Styled font for price due to size compared to main product -->
+          <div class="productView-price">
               {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                   {{> components/products/price price=product.price schema_org=schema}}
               {{else}}
@@ -77,6 +77,44 @@
               {{/if}}
           </div>
       </figure>
+    </section>
+    <section class="productView-details">
+        <div class="productView-options">
+            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                  data-cart-item-add>
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" value="{{product.id}}"/>
+                <div data-product-option-change style="display:none;">
+                    {{#each product.options}}
+                        {{{dynamicComponent 'components/products/options'}}}
+                    {{/each}}
+                </div>
+                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                    <label class="form-label form-label--alternate">
+                        {{lang 'products.current_stock'}}
+                        <span data-product-stock>{{product.stock_level}}</span>
+                    </label>
+                </div>
+                {{#if product.can_purchase}}
+                <!-- Replace add-to-cart component to remove quantity option -->
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                
+                        <div class="form-action">
+                            <input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                            value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+                        </div>
+                    {{/or}}
+                {{/if}}
+                {{#if product.out_of_stock}}
+                    {{#if product.out_of_stock_message}}
+                        {{> components/common/alert-error product.out_of_stock_message}}
+                    {{else}}
+                        {{> components/common/alert-error (lang 'products.sold_out')}}
+                    {{/if}}
+                {{/if}}
+            </form>
+        </div>
+        </div>
 
-  </section>
+    </section>
 </div>

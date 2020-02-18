@@ -185,3 +185,8 @@ $microformat-abbr-padding:          null;
 // We use this to control abbr font styles
 $microformat-abbr-font-weight:      null;
 $microformat-abbr-font-decoration:  null;
+
+// Custom for Multi-Layout.html
+$font-family: stencilFontFamily("body-font");
+$font-weight: stencilFontWeight("body-font");
+$color: stencilColor("color-secondaryDark")
