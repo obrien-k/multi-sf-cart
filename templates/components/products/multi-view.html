@@ -227,16 +227,14 @@ loadMulti({{value}})
             {{/each}}
         </div>
         </form>
-         <!-- Pull in our custom button component -->
-        {{> components/products/multi-button}}
       </section>
-      <!-- This was added to make it more obvious there's a different behavior than normal -->
-      <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}><p><strong>Click "Multi" to add the following items to your cart:</strong></p></article>
+      <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}></article>
       
     </div>
     <div class="container" > <!-- This is different than the default product-view template, helps with spacing -->
-      <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active"><h4>Multi-Add</h4>
+      <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active">{{> components/products/multi-button}}  <!-- Pull in our custom button component -->
         <!-- Set up a div with a unique id to insert our product data + template into -->
-        <div id="multi-desc"></div></div>
+        <div id="multi-desc"></div>
+      </div>
     </div>
   </div>

@@ -29,7 +29,7 @@
     /* Finally we fetch the cart URL with the generated URL and supplied options */
     fetch(url, options)
     .then(res => res.json())
-    .then(json => location.reload()) // Reloads the page
+    .then(json => location.reload()); // Reloads the page
     
     }
 </script>
@@ -39,14 +39,14 @@
     {{#if this.name "is_bundle"}}
         <div>
             <input id="multiButton" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
-                value="Multi">
+                value="Combo to Cart">
         </div>
         {{else}}
     {{/if}}
     {{/each}}
 {{/if}}
 <script>   
-    const multiButton = document.querySelector('#multiButton'); // Selects the #id that we'll attach the addMultiToCart function to, found on line 38 in this file
+    const multiButton = document.querySelector('#multiButton'); // Selects the #id that we'll attach the addMultiToCart function to, found on line 41 in this file
     multiButton.addEventListener('click', event  => {
         /* Create an array of each custom_field with the name 'foo' */
         const arr = [{{#each product.custom_fields}}{{#if name '===' 'foo'}}'{{value}}'{{#unless @last}},{{/unless}}{{/if}}{{/each}}];
