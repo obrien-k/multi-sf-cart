@@ -22,7 +22,7 @@ loadMulti({{value}})
 <!-- Close out the forEach, but we're not done with this data yet, pull the product data using Stencil Utils and use a custom template -->
 <script>
   arr.forEach((id) => {
-    window.stencilUtils.api.product.getById(id, { template: 'products/multi-product-view' }, (err, response) => {
+    window.stencilUtils.api.product.getById(id, { template: 'custom/multi-product-view' }, (err, response) => {
       /* Select the #id specified on line 241 */
       const sel = document.querySelector('#multi-desc');
       /* Append it to the innerHTML */
@@ -232,7 +232,7 @@ loadMulti({{value}})
       
     </div>
     <div class="container" > <!-- This is different than the default product-view template, helps with spacing -->
-      <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active">{{> components/products/multi-button}}  <!-- Pull in our custom button component -->
+      <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active">{{> components/custom/multi-button}}  <!-- Pull in our custom button component -->
         <!-- Set up a div with a unique id to insert our product data + template into -->
         <div id="multi-desc"></div>
       </div>
