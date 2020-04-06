@@ -1,7 +1,26 @@
 # Changelog
 
 ## Draft
+
+## 4.5.0 (2020-03-16)
+
+## 4.5.0 (2020-03-16)
+
+## 4.5.0 (2020-03-16)
+- Fixed the check for max length in create account form fields [#1647](https://github.com/bigcommerce/cornerstone/pull/1647)
+- Add region to page.html [#1639](https://github.com/bigcommerce/cornerstone/pull/1639)
+
+## 4.4.2 (2020-02-25)
+- Remove "cookie notification" feature as it is no longer useful [#1636](https://github.com/bigcommerce/cornerstone/pull/1636)
+- Fix the html special chars issue in facet names (titles) [#1637](https://github.com/bigcommerce/cornerstone/pull/1637)
+- Fix category header image size [#1640](https://github.com/bigcommerce/cornerstone/pull/1640)
+- Fix navigation issues in Search Results [#1641](https://github.com/bigcommerce/cornerstone/pull/1641)
+- Bump stencil utils to 5.0.3 [#1642](https://github.com/bigcommerce/cornerstone/pull/1642)
+
+## 4.4.1 (2020-02-11)
 - Prevent triggering quantity change when pressing enter [#1630](https://github.com/bigcommerce/cornerstone/pull/1630)
+- Replace Karma with Jest [#1627](https://github.com/bigcommerce/cornerstone/pull/1627)
+- Fix price filter to honor control panel settings[#1633](https://github.com/bigcommerce/cornerstone/pull/1633)
 
 ## 4.4.0 (2020-01-31)
 - Add translation key for "read more" blog post link [#1625](https://github.com/bigcommerce/cornerstone/pull/1625)
