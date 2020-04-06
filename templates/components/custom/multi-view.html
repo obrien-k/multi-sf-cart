@@ -226,6 +226,12 @@ loadMulti({{value}})
                 {{{dynamicComponent 'components/products/options'}}}
             {{/each}}
         </div>
+        <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+            <label class="form-label form-label--alternate">
+                {{lang 'products.current_stock'}}
+                <span data-product-stock>{{product.stock_level}}</span>
+            </label>
+        </div>
         </form>
       </section>
       <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}></article>
