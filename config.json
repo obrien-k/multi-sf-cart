@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "Cornerstone - Storefront Cart API Demo",
-  "version": "4.4.0",
-=======
-  "name": "Cornerstone",
   "version": "4.5.0",
->>>>>>> 3163444d3198e18f79211b5aa6e82417b95e2bf4
   "meta": {
     "price": 0,
     "documentation_url": "https://github.com/obrien-k/multi-sf-cart",
