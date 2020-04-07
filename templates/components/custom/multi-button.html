@@ -1,10 +1,6 @@
 <script>
   function addMultiToCart(productIds, cartId){
-      
-    const lineItems = productIds.map(id => ({
-        quantity: 1,
-        productId: id   
-    }))
+
     /* Sets the URL to an existing cart id + /items, if not use the cart endpoint to create a new cart */
     let url = cartId !== '' 
     ? `/api/storefront/carts/${cartId}/items`
