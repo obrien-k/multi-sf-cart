@@ -6,18 +6,18 @@
     Then iterate over the custom fields for the intended name ('foo' here)
     Inject into the current context -->
 {{#forEach product.custom_fields}}
-{{#if name '===' 'foo'}}
-{{inject 'productIds' value }}
-<!-- Now within the iteration, we want to push to the previously created array -->
-<script>
-jsContext= JSON.parse({{jsContext}});
-  function loadMulti(id){
-    let total = arr.push(id)
-  }
+  {{#if name '===' 'foo'}}
+    {{inject 'productIds' value }}
+    <!-- Now within the iteration, we want to push to the previously created array -->
+      <script>
+      jsContext= JSON.parse({{jsContext}});
+        function loadMulti(id){
+          let total = arr.push(id)
+        }
 
-loadMulti({{value}})
-</script>
-{{/if}}
+      loadMulti({{value}})
+      </script>
+  {{/if}}
 {{/forEach}}
 <!-- Close out the forEach, but we're not done with this data yet, pull the product data using Stencil Utils and use a custom template -->
 <script>
