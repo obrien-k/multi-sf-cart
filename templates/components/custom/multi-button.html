@@ -1,6 +1,5 @@
 <script>
   function addMultiToCart(productIds, cartId){
-
     /* Sets the URL to an existing cart id + /items, if not use the cart endpoint to create a new cart */
     let url = cartId !== '' 
     ? `/api/storefront/carts/${cartId}/items`
@@ -11,7 +10,6 @@
             quantity: 1,
             productId: id
         }))
-          
     }
     console.log(url);
     let options = {
@@ -26,7 +24,6 @@
     fetch(url, options)
     .then(res => res.json())
     .then(json => location.reload()); // Reloads the page
-    
     }
 </script>
 <!-- This will stop the button from appearing if "is_bundle" isn't a custom field on the product -->

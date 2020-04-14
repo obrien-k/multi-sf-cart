@@ -19,6 +19,7 @@
   {{/if}}
 {{/forEach}}
 <!-- Close out the forEach, but we're not done with this data yet, pull the product data using Storefront API-->
+
 <!-- Adapted from https://github.com/bigcommerce/storefront-api-examples/blob/master/html-bootstrap-vanillajs/index.html -->
 <script>
 /*
@@ -126,8 +127,9 @@ getProductAndSiteInfo().then(data => {
     // Some error was encountered
     throw(e);
   });
-        
 </script>
+<!-- Adapted from https://github.com/bigcommerce/storefront-api-examples/blob/master/html-bootstrap-vanillajs/index.html -->
+
 <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
   {{#each product.reviews.messages}}
           {{#if error}}
