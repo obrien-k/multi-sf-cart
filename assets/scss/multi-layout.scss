@@ -10,18 +10,13 @@
 #multi-desc .card {
   border:thick double #e5e5e5;
   margin:10px;
+  min-width:218px;
 }
 #multi-desc .card-title, .card-body {
   margin:10px;
 }
-#multi-desc .productView-price {
-  font-size:small;
-}
 #multi-desc .card-img-top {
   margin-bottom:0px;
-  min-height:auto;
-}
-#multi-desc .card-img-top {
   min-height:auto;
 }
 #multiButton{
