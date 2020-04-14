@@ -255,8 +255,17 @@ getProductAndSiteInfo().then(data => {
                       
                   {{/if}}
               </dl>
+              <div class="container" > <!-- This is different than the default product-view template, helps with spacing -->
+                <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active">{{> components/custom/multi-button}}  <!-- Pull in our custom button component -->
+                  <!-- Set up a div with a unique id to insert our product data + template into -->
+                  
+                </div>
+              </div>
           </div>
-      </section>
+          <div id="multi-desc"></div>
+        </section>
+        
+      
   
       <section class="productView-images" data-image-gallery>
           {{!--
@@ -316,29 +325,9 @@ getProductAndSiteInfo().then(data => {
           </ul>
       </section>
   
-      <section class="productView-details">
-        <form class="form" data-cart-item-add>
-          <!-- This is necessary to include for the form to be valid, though we don't use it to add to cart. It causes several browser errors when removed. -->
-          <div data-product-option-change style="display:none;">
-            {{#each product.options}}
-                {{{dynamicComponent 'components/products/options'}}}
-            {{/each}}
-        </div>
-        <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
-            <label class="form-label form-label--alternate">
-                {{lang 'products.current_stock'}}
-                <span data-product-stock>{{product.stock_level}}</span>
-            </label>
-        </div>
-        </form>
-      </section>
+     
       <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}></article>
       
     </div>
-    <div class="container" > <!-- This is different than the default product-view template, helps with spacing -->
-      <div class="tabs-contents" > <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active">{{> components/custom/multi-button}}  <!-- Pull in our custom button component -->
-        <!-- Set up a div with a unique id to insert our product data + template into -->
-        <div id="multi-desc"></div>
-      </div>
-    </div>
+    
   </div>
