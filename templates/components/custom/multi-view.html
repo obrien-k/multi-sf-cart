@@ -1,23 +1,17 @@
-<script>
-    let arr = [];
-</script>
 <!-- Declare an empty Array as arr
     Then iterate over the custom fields for the intended name ('foo' here)
     Inject into the current context -->
+<script>
+    let arr = [];
 {{#forEach product.custom_fields}}
   {{#if name '===' 'foo'}}
     {{inject 'productIds' value }}
-    <!-- Now within the iteration, we want to push to the previously created Array -->
-      <script>
-      jsContext= JSON.parse({{jsContext}});
-        function loadMulti(id){
-          let total = arr.push(id)
-        }
-
-      loadMulti({{value}})
-      </script>
+    // Now within the iteration, we want to push to the previously created Array
+      arr.push({{value}})
+      
   {{/if}}
 {{/forEach}}
+</script>
 <!-- Close out the forEach, but we're not done with this data yet, pull the product data using Storefront API-->
 
 <!-- Adapted from https://github.com/bigcommerce/storefront-api-examples/blob/master/html-bootstrap-vanillajs/index.html -->

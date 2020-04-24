@@ -1,9 +1,9 @@
 <script>
   function addMultiToCart(productIds, cartId){
     /* Sets the URL to an existing cart id + /items, if not use the cart endpoint to create a new cart */
-    let url = cartId !== '' 
-    ? `/api/storefront/carts/${cartId}/items`
-    : `/api/storefront/cart`
+    let url = cartId ?
+    `/api/storefront/carts/${cartId}/items`:
+    `/api/storefront/cart`
     /* Set a data variable to our lineItems object with the product ids mapped with a quantity of 1 */
     let data = {
         lineItems: productIds.map(id => ({
@@ -11,7 +11,7 @@
             productId: id
         }))
     }
-    console.log(url);
+    console.log(url); // Left for your own troubleshooting purposes, this would be a good place to start.
     let options = {
         method: 'POST',
         body: JSON.stringify(data),
