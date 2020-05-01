@@ -4,8 +4,8 @@
     Then iterate over the custom fields for the intended name ('foo' here)
     Inject into the current context -->
 <script>
-  let jsContext = JSON.parse({{jsContext}});
-  let arr = [];
+    let jsContext = JSON.parse({{jsContext}});
+    let arr = [];
     {{#forEach product.custom_fields}}
       {{#if name '===' 'foo'}}
         {{inject 'productIds' value }}
@@ -14,8 +14,9 @@
       
       {{/if}}
     {{/forEach}}
+    {{inject 'arr' arr}}
 </script>
-<!-- Close out the forEach, but we're not done with this data yet, pull the product data using Storefront API-->
+<!-- Close out the forEach, but we're not done with this data yet, note the injected 'token' and 'arr'-->
 
 <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
   {{#each product.reviews.messages}}

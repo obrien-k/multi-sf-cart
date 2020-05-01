@@ -3,10 +3,9 @@ import PageManager from "./page-manager";
 export default class Custom extends PageManager {
   constructor(context) {
     super(context);
-    this.url = window.location.href;
+    this.url = window.location.href; 
 }
   onReady(){
-    console.log(jsContext.token);
     const token = jsContext.token;
     function getProductAndSiteInfo() {
       return fetch('/graphql', {
