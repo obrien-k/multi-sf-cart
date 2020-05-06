@@ -11,10 +11,8 @@
         {{inject 'productIds' value }}
         // Now within the iteration, we want to push to the previously created Array
         arr.push({{value}})
-      
       {{/if}}
     {{/forEach}}
-    {{inject 'arr' arr}}
 </script>
 <!-- Close out the forEach, but we're not done with this data yet, note the injected 'token' and 'arr'-->
 
