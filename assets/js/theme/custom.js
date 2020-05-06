@@ -1,4 +1,5 @@
 import PageManager from "./page-manager";
+const fetch = require('node-fetch');
 
 export default class Custom extends PageManager {
   constructor(context) {
@@ -7,6 +8,7 @@ export default class Custom extends PageManager {
 }
   onReady(){
     const token = jsContext.token;
+    const cartId = jsContext.cartId;
     function getProductAndSiteInfo() {
       return fetch('/graphql', {
         method: 'POST',
@@ -114,5 +116,39 @@ export default class Custom extends PageManager {
     }
     
 
+    function addMultiToCart(productIds, cartId){
+      /* Sets the URL to an existing cart id + /items, if not use the cart endpoint to create a new cart */
+      let url = cartId ?
+      `/api/storefront/carts/${cartId}/items`:
+      `/api/storefront/cart`
+      /* Set a data variable to our lineItems object with the product ids mapped with a quantity of 1 */
+      let data = {
+          lineItems: productIds.map(id => ({
+              quantity: 1,
+              productId: id
+          }))
+      }
+      console.log(url);
+      let options = {
+          method: 'POST',
+          body: JSON.stringify(data),
+          credentials: 'include',
+          headers: {
+              "Content-Type": "application/json"
+          }
+      }
+      /* Finally we fetch the cart URL with the generated URL and supplied options */
+      return fetch(url, options)
+      .then(res => res.json())
+      .then(json => location.reload()); // Reloads the page
+      
+      }
+    const multiButton = document.querySelector('#multiButton');
+    // Selects the #id that we'll attach the addMultiToCart function to
+    multiButton.addEventListener('click', event  => {
+      addMultiToCart(arr, cartId) // run the addMultiToCart function with the array we created and a cart ID if ones available in the context.
+  });
+  
   }
+  
 }
