@@ -14,8 +14,8 @@ Modified theme files:
 - /templates
  - /components
   - /custom*
-   - multi-product.html*
    - multi-button.html*
+   - multi-view.html*
  - /pages
   - /custom*
    - multi-layout.html*
