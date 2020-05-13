@@ -142,12 +142,12 @@ export default class Custom extends PageManager {
       .then(res => res.json())
       .then(json => location.reload()); // Reloads the page
       
-      }
+    }
     const multiButton = document.querySelector('#multiButton');
     // Selects the #id that we'll attach the addMultiToCart function to
     multiButton.addEventListener('click', event  => {
       addMultiToCart(arr, cartId) // run the addMultiToCart function with the array we created and a cart ID if ones available in the context.
-  });
+    });
   
   }
   
