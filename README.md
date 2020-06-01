@@ -23,4 +23,4 @@ Modified theme files:
 
 To apply this to a product on your store you'll need to include the custom field "is_bundled" with a value of true, as well as "foo" with the value for any Product ID you want added to cart and displayed on the page. Apply the "multi-layout.html" custom template to that product, and the changes should be seen on your storefront.
 
-This repository was created for the article, "Using Storefront APIs to Create Custom Product Display Page Experiences".
+This repository was created for the article, ["Using Storefront APIs to Create Custom Product Display Page Experiences"](https://medium.com/bigcommerce-developer-blog/using-bigcommerce-storefront-apis-to-create-custom-product-display-page-experiences-72ed3fbf7b23).

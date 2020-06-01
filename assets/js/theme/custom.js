@@ -148,7 +148,7 @@ export default class Custom extends PageManager {
     multiButton.addEventListener('click', event  => {
       addMultiToCart(arr, cartId) // run the addMultiToCart function with the array we created and a cart ID if ones available in the context.
     });
-  
+
   }
   
 }

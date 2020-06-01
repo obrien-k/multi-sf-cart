@@ -4,7 +4,7 @@
   "meta": {
     "price": 0,
     "documentation_url": "https://github.com/obrien-k/multi-sf-cart",
-    "author_name": "Kyle O'Brien",
+    "author_name": "Kyle OBrien",
     "author_email": "kyle.obrien@bigcommerce.com",
     "author_support_url": "https://support.bigcommerce.com/",
     "composed_image": "composed.png",
@@ -79,6 +79,7 @@
     "show_accept_visa": false,
     "show_accept_amazonpay": false,
     "show_accept_googlepay": false,
+    "show_accept_klarna": false,
     "show_product_details_tabs": true,
     "show_product_reviews_tabs": false,
     "show_custom_fields_tabs": false,
@@ -326,7 +327,8 @@
       "card",
       "paypal"
     ],
-    "lazyload_mode": "lazyload+lqip"
+    "lazyload_mode": "lazyload+lqip",
+    "show-admin-bar": true
   },
   "read_only_files": [
     "/assets/scss/components/citadel",
