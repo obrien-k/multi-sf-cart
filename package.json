@@ -55,7 +55,7 @@
     "npx": "^10.2.0",
     "time-grunt": "^1.2.2",
     "webpack": "~4.27.1",
-    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "~3.1.2",
     "webpack-merge": "~4.1.2"
   },
